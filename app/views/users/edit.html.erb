@@ -1,0 +1,24 @@
+<div class="main users-edit">
+ <div class="container">
+  <div class="form-heading">ユーザーの編集</div>
+  <%= form_tag user_path, method: :patch, multipart: true do %>
+  <div class="form users-form">
+  <div class="form-body">
+  <% @user.errors.full_messages.each do |message| %>
+   <div class="form-error"><%= message %></div>
+  <% end %>
+  <!-- form_tagを使い、編集内容を送信できるようにする -->
+   <p>ユーザー名</p>
+   <!-- nameカラムを初期値として表示する記述 -->
+   <input name="name" value="<%= @user.name %>">
+   <p>メールアドレス</p>
+   <!-- nameカラムを初期値として表示する記述 -->
+   <input name="email" value="<%= @user.email %>">
+   <p>プロフィール画像</p>
+   <input name="image" type="file">
+   <input type="submit" value="保存">
+  </div>
+  </div>
+  <% end %>
+ </div>
+</div>
